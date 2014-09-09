@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'robolectric'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 20
     buildToolsVersion "19.1.0"
 
     defaultConfig {
         applicationId "com.mdrabic.furryfireworks"
         minSdkVersion 15
-        targetSdkVersion 'L'
+        targetSdkVersion 20
         versionCode 1
         versionName "1.0"
     }
@@ -26,4 +27,21 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    androidTestCompile 'org.hamcrest:hamcrest-integration:1.1'
+    androidTestCompile 'org.hamcrest:hamcrest-core:1.1'
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.1'
+
+    androidTestCompile('junit:junit:4.+') {
+        exclude module: 'hamcrest-core'
+    }
+
+    androidTestCompile ('com.squareup.assertj:assertj-android:1.0.0') {
+        exclude module: 'hamcrest-core'
+    }
+
+    androidTestCompile('org.robolectric:robolectric:2.3') {
+        exclude module: 'commons-logging'
+        exclude module: 'httpclient'
+    }
 }
