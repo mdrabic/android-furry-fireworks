@@ -1,4 +1,4 @@
-package com.mdrabic.ctcrunch;
+package com.mdrabic.materialimagery;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
@@ -13,21 +13,18 @@ import com.mdrabic.furryfireworks.MaterialDrawable;
 
 public class MainActivity extends Activity {
 
-    private Button transform;
-    private ImageView ctCrunchImg;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        transform = (Button) findViewById(R.id.transform);
-        ctCrunchImg = (ImageView) findViewById(R.id.ctcrunch_img);
+        Button btn = (Button) findViewById(R.id.load);
 
-        transform.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.guy);
-                ctCrunchImg.setImageDrawable(new MaterialDrawable(getResources(), b));
+                ImageView view = (ImageView) findViewById(R.id.img);
+                view.setImageDrawable(new MaterialDrawable(getResources(), b));
             }
         });
     }

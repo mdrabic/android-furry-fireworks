@@ -1,4 +1,4 @@
-package com.mdrabic.ctcrunch;
+package com.mdrabic.materialimagery;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
